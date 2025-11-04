@@ -38,11 +38,12 @@ export default function RegisterPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-            <div className="bg-white shadow-lg rounded-2xl w-full max-w-md p-8">
-                <h2 className="text-3xl font-semibold text-center mb-6 text-gray-800">
+        <div className="min-h-screen flex items-center justify-center bg-[#F5F5FA] px-4">
+            <div className="bg-white border border-[#E5E5F0] shadow-xl rounded-2xl w-full max-w-md p-8">
+                <h2 className="text-3xl font-semibold text-center mb-6 text-[#6C63FF]">
                     Create your account
                 </h2>
+
                 {error && (
                     <div className="bg-red-100 text-red-700 p-3 rounded mb-4 text-sm">
                         {error}
@@ -53,66 +54,56 @@ export default function RegisterPage() {
                         Registered successfully! Redirecting...
                     </div>
                 )}
+
                 <form onSubmit={handleSubmit} className="space-y-4">
-                    <div>
-                        <label className="block text-sm font-medium mb-1">Full Name</label>
-                        <input
-                            type="text"
-                            name="name"
-                            value={form.name}
-                            onChange={handleChange}
-                            required
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-1">Email</label>
-                        <input
-                            type="email"
-                            name="email"
-                            value={form.email}
-                            onChange={handleChange}
-                            required
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-1">Password</label>
-                        <input
-                            type="password"
-                            name="password"
-                            value={form.password}
-                            onChange={handleChange}
-                            required
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
-                        />
-                    </div>
-                    <div>
-                        <label className="block text-sm font-medium mb-1">
-                            Referral Code (optional)
-                        </label>
-                        <input
-                            type="text"
-                            name="referralCode"
-                            value={form.referralCode}
-                            onChange={handleChange}
-                            placeholder="Enter friend's code"
-                            className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring focus:ring-blue-400"
-                        />
-                    </div>
+                    <input
+                        type="text"
+                        name="name"
+                        placeholder="Full Name"
+                        value={form.name}
+                        onChange={handleChange}
+                        required
+                        className="w-full border border-[#DDDDEE] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#6C63FF] outline-none"
+                    />
+                    <input
+                        type="email"
+                        name="email"
+                        placeholder="Email"
+                        value={form.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full border border-[#DDDDEE] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#6C63FF] outline-none"
+                    />
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={form.password}
+                        onChange={handleChange}
+                        required
+                        className="w-full border border-[#DDDDEE] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#6C63FF] outline-none"
+                    />
+                    <input
+                        type="text"
+                        name="referralCode"
+                        placeholder="Referral Code (optional)"
+                        value={form.referralCode}
+                        onChange={handleChange}
+                        className="w-full border border-[#DDDDEE] rounded-lg px-4 py-2 focus:ring-2 focus:ring-[#6C63FF] outline-none"
+                    />
 
                     <button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition-colors duration-300 disabled:opacity-50"
+                        className="w-full bg-[#6C63FF] hover:bg-[#584CF8] text-white py-2 rounded-lg font-semibold transition-all duration-200 disabled:opacity-50"
                     >
                         {loading ? "Creating account..." : "Register"}
                     </button>
                 </form>
 
-                <p className="text-center text-sm text-gray-500 mt-4">
+                <p className="text-center text-sm text-[#2F2E41]/70 mt-4">
                     Already have an account?{" "}
-                    <a href="/auth/login" className="text-blue-600 hover:underline">
+                    <a href="/auth/login" className="text-[#6C63FF] hover:underline font-medium">
                         Log in
                     </a>
                 </p>

@@ -4,6 +4,10 @@ const API_BASE_URL = "http://localhost:4000/api"; // change to backend URL in pr
 
 export const api = axios.create({
     baseURL: API_BASE_URL,
+    headers: {
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+    },
 });
 
 // Automatically include JWT token if present
@@ -20,7 +24,8 @@ export const registerUser = (data: any) => api.post("/auth/register", data);
 export const loginUser = (data: any) => api.post("/auth/login", data);
 
 // ---------- Dashboard ----------
-export const fetchDashboard = () => api.get("/dashboard");
+export const fetchDashboard = () =>
+    api.get("/dashboard", { headers: { "Cache-Control": "no-store" } });
 
 // ---------- Referrals ----------
 export const fetchReferrals = () => api.get("/referrals");
