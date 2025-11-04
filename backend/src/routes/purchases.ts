@@ -26,33 +26,28 @@ router.post("/buy", authMiddleware, async (req: any, res) => {
   const userId = req.userId;
   if (!userId) return res.status(401).json({ message: "Unauthorized" });
 
-  // create purchase
   const purchase = new Purchase({ userId, productId, amount });
   await purchase.save();
 
-  // Process referral credits atomically
   const session = await mongoose.startSession();
+  let referral; // ✅ declare here
   try {
     session.startTransaction();
 
-    // find referral where referredId = userId and status != converted
-    const referral = await Referral.findOneAndUpdate(
+    referral = await Referral.findOneAndUpdate(
       { referredId: userId, status: { $ne: "converted" } },
       { $set: { status: "converted", convertedAt: new Date() } },
       { new: true, session }
     );
 
     if (referral) {
-      // award 2 credits each
       const referrer = await User.findById(referral.referrerId).session(session);
       const referred = await User.findById(userId).session(session);
       if (referrer && referred) {
-        // avoid double awarding using rewardGiven flags if needed; here status change prevents re-run
-        referrer.credits += 2;
-        referred.credits += 2;
+        referrer.credits = (referrer.credits || 0) + 2;
+        referred.credits = (referred.credits || 0) + 2;
         await referrer.save({ session });
         await referred.save({ session });
-        // Could also create credits_log entries here
       }
     }
 
@@ -66,5 +61,6 @@ router.post("/buy", authMiddleware, async (req: any, res) => {
 
   res.json({ purchase, referralConverted: !!referral });
 });
+
 
 export default router;
