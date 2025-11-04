@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:4000/api"; // change to backend URL in production
+const API_BASE_URL = "https://fullstack-referral-app.onrender.com/api"; // change to backend URL in production
 
 export const api = axios.create({
     baseURL: API_BASE_URL,
