@@ -1,9 +1,4 @@
-Perfect — here’s a **polished, recruiter-ready README.md** written professionally for your **Full Stack Referral System** project.
-It’s concise yet detailed, formatted cleanly, includes emojis for a modern look, and integrates your UML diagram image beautifully.
 
----
-
-````markdown
 # 🎯 Full Stack Referral System  
 
 A modern **MERN-based Referral Management Application** that enables users to **register, log in, generate referral codes, earn credits**, and **make purchases** through an interactive dashboard — built for smooth user experience and maintainable architecture.  
