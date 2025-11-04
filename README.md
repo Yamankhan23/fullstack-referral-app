@@ -1,86 +1,89 @@
 
-# 🎯 Full Stack Referral System  
+# 🎯 Full Stack Referral System
 
-A modern **MERN-based Referral Management Application** that enables users to **register, log in, generate referral codes, earn credits**, and **make purchases** through an interactive dashboard — built for smooth user experience and maintainable architecture.  
+A modern **MERN-based Referral Management Application** that enables users to **register, log in, generate referral codes, earn credits**, and **make purchases** through an interactive dashboard — built for smooth user experience and maintainable architecture.
 
 ![System Architecture](https://github.com/Yamankhan23/fullstack-referral-app/blob/main/SYSTEM_DATA-FLOW_UML.png?raw=true)
 
 ---
 
-## 📖 Description  
+## 📖 Description
 
-This project is a **complete referral and rewards system** built using **Next.js (React) and Node.js/Express with MongoDB**.  
-It allows users to create accounts, share referral codes, track referrals, and earn credits through purchases.  
+This project is a **complete referral and rewards system** built using **Next.js (React) and Node.js/Express with MongoDB**.
+It allows users to create accounts, share referral codes, track referrals, and earn credits through purchases.
 
-The goal is to simulate a **real-world referral-based commerce system** while maintaining clean backend logic and responsive frontend design.  
+The goal is to simulate a **real-world referral-based commerce system** while maintaining clean backend logic and responsive frontend design.
 It demonstrates strong understanding of **authentication**, **state management (Zustand)**, **REST API integration**, and **credit transaction workflows**.
 
 ---
 
-## 🧭 Table of Contents  
+## 🧭 Table of Contents
 
-- [Description](#-description)  
-- [Installation](#-installation)  
-- [Usage](#-usage)  
-- [Features](#-features)  
-- [Technologies Used](#-technologies-used)  
-- [API Documentation](#-api-documentation)  
-- [Deployment](#-deployment)  
-- [License](#-license)  
-- [Contact](#-contact)  
-- [Acknowledgments](#-acknowledgments)  
+* [Description](#-description)
+* [Installation](#-installation)
+* [Usage](#-usage)
+* [Features](#-features)
+* [Technologies Used](#-technologies-used)
+* [API Documentation](#-api-documentation)
+* [Deployment](#-deployment)
+* [Contact](#-contact)
+* [Acknowledgments](#-acknowledgments)
 
 ---
 
-## ⚙️ Installation  
+## ⚙️ Installation
 
-### Prerequisites  
-Ensure you have installed:  
-- **Node.js** (v16 or later)  
-- **npm** or **yarn**  
-- **MongoDB** (local or cloud via MongoDB Atlas)  
+### Prerequisites
 
-### Steps  
+Ensure you have installed:
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Yamankhan23/fullstack-referral-app.git
-   cd fullstack-referral-app
-````
+* **Node.js** (v16 or later)
+* **npm** or **yarn**
+* **MongoDB** (local or cloud via MongoDB Atlas)
 
-2. **Install dependencies for both backend and frontend**
+### Steps
 
-   ```bash
-   cd backend
-   npm install
-   cd ../frontend
-   npm install
-   ```
+#### 1️⃣ Clone the repository
 
-3. **Set up environment variables**
-   Create a `.env` file in `/backend` with:
+```bash
+git clone https://github.com/Yamankhan23/fullstack-referral-app.git
+cd fullstack-referral-app
+```
 
-   ```bash
-   MONGODB_URI=your_mongodb_connection_string
-   JWT_SECRET=your_secret_key
-   PORT=4000
-   ```
+#### 2️⃣ Install dependencies for both backend and frontend
 
-4. **Run the backend**
+```bash
+cd backend
+npm install
+cd ../frontend
+npm install
+```
 
-   ```bash
-   cd backend
-   npm start
-   ```
+#### 3️⃣ Set up environment variables
 
-5. **Run the frontend**
+Create a `.env` file in `/backend` with:
 
-   ```bash
-   cd frontend
-   npm run dev
-   ```
+```bash
+MONGODB_URI=mongodb+srv://admin_yaman:0192837465FSproject@cluster0.qxareal.mongodb.net/?appName=Cluster0
+JWT_SECRET=devsecret
+PORT=4000
+```
 
-6. Visit **[http://localhost:3000](http://localhost:3000)** to view the app.
+#### 4️⃣ Run the backend
+
+```bash
+cd backend
+npm start
+```
+
+#### 5️⃣ Run the frontend
+
+```bash
+cd frontend
+npm run dev
+```
+
+Now visit **[http://localhost:3000](http://localhost:3000)** to view the app. 🎉
 
 ---
 
@@ -97,14 +100,14 @@ Ensure you have installed:
 
 ## 🌟 Features
 
-✅ User registration and login with JWT authentication
-✅ Referral link & code generation
-✅ Dashboard with user credits and referral summary
-✅ Store section with live product cards and “Buy Now” simulation
-✅ Credits auto-update after successful referral-based purchase
-✅ Elegant and responsive UI (Tailwind + modern palette)
-✅ Secure backend with transaction-safe credit updates
-✅ Modular structure (clear separation of frontend/backend)
+* 🧑‍💻 User registration and login with JWT authentication
+* 🔗 Referral link & code generation
+* 📊 Dashboard with user credits and referral summary
+* 🛍️ Store section with product cards and “Buy Now” simulation
+* 💰 Credits auto-update after successful referral-based purchase
+* 💎 Elegant and responsive UI (Tailwind + modern color palette)
+* 🔐 Secure backend with transaction-safe credit updates
+* 🧱 Modular architecture with clear separation of frontend and backend
 
 ---
 
@@ -142,8 +145,8 @@ Ensure you have installed:
 
 ## 🛠️ Deployment
 
-* **Frontend:** Deployed on platform **Netlify**
-* **Backend:** Deployed on **Render**
+* **Frontend:** Deployed on platforms like **Vercel** or **Netlify**
+* **Backend:** Can be deployed on **Render**, **Railway**, or **AWS EC2**
 * **Database:** Hosted on **MongoDB Atlas**
 
 To deploy:
@@ -155,11 +158,6 @@ npm start
 
 Ensure you update `API_BASE_URL` in `frontend/lib/api.ts` to your deployed backend URL.
 
----
-
-## 📜 License
-
-This project is licensed under the **MIT License** — feel free to use, modify, and distribute with attribution.
 
 ---
 
@@ -167,7 +165,7 @@ This project is licensed under the **MIT License** — feel free to use, modify,
 
 **Author:** [Khan Yaman](https://github.com/Yamankhan23)
 📧 **Email:** [yamankhan.dev@gmail.com](mailto:khanyaman2000@gmail.com)
-💼 **LinkedIn:** [linkedin.com/in/yamankhan23](https://linkedin.com/in/yamankhan23)
+💼 **LinkedIn:** [linkedin.com/in/yamankhan23](https://www.linkedin.com/in/yamankhan29/)
 
 ---
 
@@ -181,11 +179,7 @@ Special thanks to:
 
 ---
 
-⭐ *If you found this project helpful, consider starring the repo!*
-
-```
+⭐ *If you found this project helpful, consider starring the repo!* ⭐
 
 ---
 
-Would you like me to slightly **add a short 2-line tagline** under the title (for recruiter appeal, e.g., “Smart referral system built with clean architecture and real-world logic”)?
-```
