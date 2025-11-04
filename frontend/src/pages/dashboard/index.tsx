@@ -13,11 +13,13 @@ export default function DashboardPage() {
     const [purchaseLoading, setPurchaseLoading] = useState(false);
     const [purchaseMsg, setPurchaseMsg] = useState("");
 
+    // ---------- Load dashboard on mount ----------
     useEffect(() => {
         if (!token) {
             router.push("/auth/login");
             return;
         }
+
         const loadDashboard = async () => {
             try {
                 const res = await fetchDashboard();
@@ -32,11 +34,13 @@ export default function DashboardPage() {
         loadDashboard();
     }, [token, router]);
 
+    // ---------- Logout ----------
     const handleLogout = () => {
         logout();
         router.push("/auth/login");
     };
 
+    // ---------- Copy referral link ----------
     const handleCopyReferral = async () => {
         const referralLink = `${window.location.origin}/auth/register?ref=${data?.referralCode}`;
         try {
@@ -48,15 +52,18 @@ export default function DashboardPage() {
         }
     };
 
+    // ---------- Simulate Purchase ----------
     const handlePurchase = async () => {
         setPurchaseLoading(true);
         setPurchaseMsg("");
         try {
+            console.log("Before:", data?.totalCredits);
             await makePurchase({ productId: "TEST_PRODUCT", amount: 1 });
             setPurchaseMsg("Purchase simulated successfully! Credits updated.");
             // reload dashboard data
             const res = await fetchDashboard();
             setData(res.data);
+            console.log("After:", res.data.totalCredits);
         } catch (err: any) {
             console.error(err);
             setPurchaseMsg("Purchase failed. Please try again.");
@@ -65,6 +72,7 @@ export default function DashboardPage() {
         }
     };
 
+    // ---------- Render ----------
     if (loading)
         return (
             <div className="min-h-screen flex items-center justify-center text-gray-600">
@@ -82,6 +90,7 @@ export default function DashboardPage() {
     return (
         <div className="min-h-screen bg-gray-50 text-gray-900 p-6 flex flex-col items-center">
             <div className="w-full max-w-3xl bg-white shadow-md rounded-2xl p-6">
+                {/* Header */}
                 <div className="flex justify-between items-center mb-6">
                     <h1 className="text-2xl font-semibold">Welcome, {data?.name}</h1>
                     <button
@@ -92,6 +101,7 @@ export default function DashboardPage() {
                     </button>
                 </div>
 
+                {/* Stats */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-8">
                     <div className="bg-blue-100 p-4 rounded-lg text-center">
                         <h3 className="text-sm text-gray-600">Referral Code</h3>
@@ -105,12 +115,14 @@ export default function DashboardPage() {
                             {copySuccess ? "Copied!" : "Copy referral link"}
                         </button>
                     </div>
+
                     <div className="bg-green-100 p-4 rounded-lg text-center">
                         <h3 className="text-sm text-gray-600">Total Credits</h3>
                         <p className="text-lg font-semibold text-green-700">
                             {data?.totalCredits}
                         </p>
                     </div>
+
                     <div className="bg-yellow-100 p-4 rounded-lg text-center">
                         <h3 className="text-sm text-gray-600">Referred Users</h3>
                         <p className="text-lg font-semibold text-yellow-700">
@@ -119,6 +131,7 @@ export default function DashboardPage() {
                     </div>
                 </div>
 
+                {/* Referral Summary */}
                 <h2 className="text-xl font-semibold mb-3">Referral Summary</h2>
                 <ul className="space-y-2 mb-6">
                     <li className="flex justify-between border-b pb-2">
@@ -133,6 +146,7 @@ export default function DashboardPage() {
                     </li>
                 </ul>
 
+                {/* Simulate Purchase */}
                 <button
                     onClick={handlePurchase}
                     disabled={purchaseLoading}
