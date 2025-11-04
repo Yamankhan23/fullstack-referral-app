@@ -1,0 +1,29 @@
+import axios from "axios";
+
+const API_BASE_URL = "http://localhost:4000/api"; // change to backend URL in production
+
+export const api = axios.create({
+    baseURL: API_BASE_URL,
+});
+
+// Automatically include JWT token if present
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem("token");
+    if (token) {
+        config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+});
+
+// ---------- Auth APIs ----------
+export const registerUser = (data: any) => api.post("/auth/register", data);
+export const loginUser = (data: any) => api.post("/auth/login", data);
+
+// ---------- Dashboard ----------
+export const fetchDashboard = () => api.get("/dashboard");
+
+// ---------- Referrals ----------
+export const fetchReferrals = () => api.get("/referrals");
+
+// ---------- Purchase ----------
+export const makePurchase = (data: any) => api.post("/purchases/buy", data);
