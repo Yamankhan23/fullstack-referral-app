@@ -5,8 +5,7 @@ import app from "./app";
 dotenv.config();
 
 const MONGO =
-  process.env.MONGO_URI ||
-  "mongodb+srv://admin_yaman:0192837465FSproject@cluster0.qxareal.mongodb.net/ReferralSystem?retryWrites=true&w=majority";
+  process.env.MONGO_URI;
 
 console.log("Connecting to MongoDB...");
 
